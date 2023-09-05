@@ -1,0 +1,57 @@
+﻿@model PacienteModel
+
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Crear contacto</h5>
+    <div class="card-body">
+        <form asp-action="Guardar" asp-controller="Paciente" method="post">
+            <div class="mb-3">
+                <label class="form-label">Tipo de documento</label>
+                <input asp-for="tipoDocumento" type="text" class="form-control">
+                <span asp-validation-for="tipoDocumento" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Número de documento</label>
+                <input asp-for="numeroDocumento" type="text" class="form-control">
+                <span asp-validation-for="numeroDocumento" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nombres</label>
+                <input asp-for="nombres" type="text" class="form-control">
+                <span asp-validation-for="nombres" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellidos</label>
+                <input asp-for="apellidos" type="text" class="form-control">
+                <span asp-validation-for="apellidos" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Correo electronico</label>
+                <input asp-for="correo" type="text" class="form-control">
+                <span asp-validation-for="correo" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Telefono</label>
+                <input asp-for="telefono" type="text" class="form-control">
+                <span asp-validation-for="telefono" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fecha de nacimiento</label>
+                <input asp-for="fecha_nacimiento" type="date" class="form-control">
+                <span asp-validation-for="fecha_nacimiento" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Estado de afiliación</label>
+                <input asp-for="estado" type="text" class="form-control">
+                <span asp-validation-for="estado" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="Paciente" class="btn btn-warning ">Volver a la lista</a>
+        </form>
+    </div>
+</div>
+

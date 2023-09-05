@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\PRUEBA_BRAHAN_A_ACOSTA.props" />
+</Project>

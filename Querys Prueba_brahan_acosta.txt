@@ -1,0 +1,80 @@
+CREATE DATABASE PRUEBA_BRAHAN_A_ACOSTA
+
+USE PRUEBA_BRAHAN_A_ACOSTA
+
+CREATE TABLE PACIENTES(
+Id int identity primary key,
+tipoDocumento varchar(100),
+numeroDocumento varchar(100),
+nombres varchar(100),
+apellidos varchar(100),
+correo varchar(100),
+telefono varchar(100),
+fecha_nacimiento dateTime,
+estado varchar(100),
+)
+
+
+CREATE PROCEDURE SP_LISTAR
+AS
+BEGIN
+	SELECT * FROM PACIENTES
+END
+
+
+
+CREATE PROCEDURE SP_OBTENER(
+@Id INT
+)
+AS
+BEGIN
+	SELECT * FROM PACIENTES WHERE Id = @Id
+END
+
+
+CREATE PROCEDURE SP_GUARDAR(
+@tipoDocumento varchar(100),
+@numeroDocumento varchar(100),
+@nombres varchar(100),
+@apellidos varchar(100),
+@correo varchar(100),
+@telefono varchar(100),
+@fecha_nacimiento dateTime,
+@estado varchar(100)
+)
+AS
+BEGIN
+	INSERT INTO PACIENTES (tipoDocumento,numeroDocumento,nombres,apellidos,correo,telefono,fecha_nacimiento,estado) VALUES (@tipoDocumento,@numeroDocumento,@nombres,@apellidos,@correo
+	,@telefono,@fecha_nacimiento,@estado)
+END
+
+
+CREATE PROCEDURE SP_EDITAR(
+@Id INT,
+@tipoDocumento varchar(100),
+@numeroDocumento varchar(100),
+@nombres varchar(100),
+@apellidos varchar(100),
+@correo varchar(100),
+@telefono varchar(100),
+@fecha_nacimiento dateTime,
+@estado varchar(100)
+)
+AS
+BEGIN
+	UPDATE PACIENTES SET tipoDocumento = @tipoDocumento, numeroDocumento = @numeroDocumento, nombres = @nombres, apellidos = @apellidos, correo = @correo,
+	telefono = @telefono, fecha_nacimiento = @fecha_nacimiento, estado = @estado WHERE Id = @Id
+END
+
+
+CREATE PROCEDURE SP_ELIMINAR(
+@Id INT
+)
+AS
+BEGIN
+	DELETE FROM PACIENTES WHERE Id = @Id
+END
+
+SELECT * FROM PACIENTES
+
+EXEC SP_ELIMINAR 4

@@ -1,0 +1,50 @@
+﻿@model List<PacienteModel>;
+
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Lista de pacientes</h5>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-controller="Paciente" class="btn btn-success ">Crear nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo de documento</th>
+                    <th>Número de documento</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.tipoDocumento</td>
+                        <td>@item.numeroDocumento</td>
+                        <td>@item.nombres</td>
+                        <td>@item.apellidos</td>
+                        <td>@item.correo</td>
+                        <td>@item.telefono</td>
+                        <td>@item.fecha_nacimiento</td>
+                        <td>@item.estado</td>
+                        <td>
+                            <a asp-action="Editar" asp-controller="Paciente" class="btn btn-primary btn-sm" asp-route-id="@item.Id">Editar</a>
+                            <a asp-action="Eliminar" asp-controller="Paciente" class="btn btn-danger btn-sm" asp-route-id="@item.Id">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
